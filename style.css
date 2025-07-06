@@ -1,0 +1,71 @@
+/* 
+  🔥 Project: Animated Button
+  📝 Created by: Shubhanjali Pandey
+  🎯 CSI Internship - Week 5 Task
+*/
+
+body {
+  background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+.button-wrapper {
+  text-align: center;
+}
+
+.magic-button {
+  position: relative;
+  padding: 18px 50px;
+  font-size: 22px;
+  background: linear-gradient(135deg, rgba(255, 153, 102, 0.2), rgba(102, 153, 255, 0.2));
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 60px;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(102, 153, 255, 0.6);
+  transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+  animation: floatPulse 4s ease-in-out infinite;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.magic-button:hover {
+  background: linear-gradient(135deg, rgba(255, 204, 153, 0.3), rgba(153, 204, 255, 0.3));
+  box-shadow: 0 0 50px rgba(255, 204, 153, 0.7);
+  transform: scale(1.08);
+}
+
+@keyframes floatPulse {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.magic-button .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  pointer-events: none;
+}
+
+.magic-button.ripple-animate .ripple {
+  animation: rippleEffect 0.6s ease-out;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
